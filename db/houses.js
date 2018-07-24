@@ -5,7 +5,7 @@ module.exports = {
     return connection('houses').where('id', id).first()
   },
   findHouseByUserId(user_id) {
-    return connection.select('houses.*').from('houses').innerJoin('users', 'houses.id', 'users.house_id').where('users.id', user_id)
+    return connection.select('houses.*').from('houses').innerJoin('users', 'houses.id', 'users.house_id').where('users.id', user_id).first()
   },
   createHouse(house) {
     return connection('houses').insert(house, '*');

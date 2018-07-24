@@ -9,7 +9,7 @@ exports.seed = function(knex, Promise) {
   ]).then(function () {
     return knex('houses').insert([{
       id: 1,
-      name: 'Test House'
+      name: 'My House'
     }]);
   }).then(function () {
     return knex('users').insert([{
@@ -21,44 +21,44 @@ exports.seed = function(knex, Promise) {
   }).then(function () {
     return knex('roommates').insert([{
       id: 1,
-      name: 'Roommate 1',
+      name: 'Connor',
       house_id: 1
     }, {
       id: 2,
-      name: 'Roommate 2',
+      name: 'Audrey',
       house_id: 1
     }]);
   }).then(function () {
     return knex('bills').insert([{
       id: 1,
-      name: 'Bill 1',
-      amount: 100.10,
+      name: 'Comcast',
+      amount: 80,
       house_id: 1
     }, {
       id: 2,
-      name: 'Bill 2',
-      amount: 200.20,
+      name: 'Xcel',
+      amount: 100,
       house_id: 1
     }]);
   }).then(function () {
     return knex('payments').insert([{
       id: 1,
-      amount: 10.10,
+      amount: 30.00,
       roommate_id: 1,
       bill_id: 1
     }, {
       id: 2,
-      amount: 20.20,
+      amount: 20.00,
       roommate_id: 1,
       bill_id: 2
     }, {
       id: 3,
-      amount: 30.30,
+      amount: 10.00,
       roommate_id: 2,
       bill_id: 1
     }, {
       id: 4,
-      amount: 40.40,
+      amount: 20.00,
       roommate_id: 2,
       bill_id: 2
     }]);
