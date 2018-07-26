@@ -25,7 +25,7 @@ module.exports = {
     return connection('roommates').where('id', id).first()
   },
   findRoommatesByHouseId(house_id) {
-    return connection.select('roommates.*').from('roommates').where('roommates.house_id', house_id).then(roommates => addPaymentsToRoommates(roommates))
+    return connection.select('roommates.*').from('roommates').where('roommates.house_id', house_id).where('archived', false).then(roommates => addPaymentsToRoommates(roommates))
   },
   createRoommate(roommate) {
     return connection('roommates').insert(roommate, '*').then(roommate => roommate[0]);

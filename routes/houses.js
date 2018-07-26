@@ -142,8 +142,20 @@ router.put('/:id', isValidId, (req, res, next) => {
   }
 })
 
+router.patch('/current/roommates/:id', isValidId, (req, res, next) => {
+  roommates.updateRoommate(req.params.id, req.body).then(roommates => {
+    res.json(roommates[0])
+  })
+})
+
 router.delete('/:id', isValidId, (req, res) => {
   houses.deleteHouse(req.params.id).then(() => {
+    res.json({message: 'Deleted'})
+  })
+})
+
+router.delete('/current/payments/:id', isValidId, (req, res) => {
+  payments.deletePayment(req.params.id).then(() => {
     res.json({message: 'Deleted'})
   })
 })
